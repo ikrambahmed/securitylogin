@@ -35,7 +35,11 @@ public class CrudController<T, ID> {
 		service.update(entity);
 	}
 	
-
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable String id) {
+		service.delete(id);
+	}
+	
 	
 	@PostMapping("/all")
 	public ResponseEntity<List<T>> addAll(@RequestBody List<T> list) {

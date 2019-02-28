@@ -1,9 +1,11 @@
 package application.controller;
 
-
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,41 +16,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import application.model.Missionaire;
-import application.service.MissionnaireService;
+import application.model.mission;
+import application.service.Missiondao;
 
 
 @RestController
-@RequestMapping("/api/missionaire")
+@RequestMapping("/api/mission")
 @CrossOrigin
-public class MissionnaireController {
+public class MissionController {
+	
 	@Autowired
-	private MissionnaireService missionaireService ; 
+	Missiondao missiondao;
+	
 	
 	@GetMapping
-	public List<Missionaire> getMissionaires() {
-		return missionaireService.getMissionnaires() ; 
+	public List<mission> getMissionaires() {
+		return missiondao.getMissions() ; 
 		
 	}
 	@PostMapping
-	public void addMissionaire(@RequestBody Missionaire missionaire)
+	public void addMission(@RequestBody mission Mission)
 	{
-		missionaireService.addMissionaire(missionaire);
+		missiondao.addMission(Mission);
 	}
 	
 	@PutMapping
-	public void updateMissionaire(@RequestBody Missionaire missionaire)
+	public void updateMission(@RequestBody mission missiona)
 	{
-		missionaireService.updateMissionaire(missionaire);
+		missiondao.updateMission(missiona);
 		
 	}
-	@DeleteMapping("/{cin}")
-	public void deleteMissionaire(@PathVariable String cin)
+	@DeleteMapping("/{code}")
+	public void deleteMission(@PathVariable Long code)
 	{
-		missionaireService.deleteteMissionaire(cin);
+		missiondao.deleteMission(code);
 	}
-	
-	
 	
 }

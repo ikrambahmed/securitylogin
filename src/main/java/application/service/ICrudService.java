@@ -13,4 +13,8 @@ public interface ICrudService<T, ID> {
 	void saveAll(Iterable<T> iterable);
 
 	void delete(String id);
+	
+	//void delete(String id);
+
+
 }

@@ -39,6 +39,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 		boolean accountNonLocked = true;
 		
 		UserDetails userDetails = new org.springframework.security.core.userdetails.User(
+				
 				username, 
 				user.getPassword(), 
 				user.isEnable(), 
@@ -53,6 +54,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	private Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
 		Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
 		for (Role role: roles) {
+		
 			GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getName());
 			grantedAuthorities.add(grantedAuthority);
 		}

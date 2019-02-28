@@ -1,8 +1,10 @@
 package application.model;
 
 
+import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,13 +18,17 @@ import javax.persistence.ManyToMany;
 @Entity
 public class User {
 
-	@Id
+	/*@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="USER_ID")
 	private Long id;
 	
-	@Column(unique=true)
+	@Column(unique=true)*/
+	
+	@Id
 	private String username;
+	private String nom ; 
+	private String prenom ; 
 	
 	private String password;
 	
@@ -33,12 +39,32 @@ public class User {
 	joinColumns={@JoinColumn(name="USER_ID")},
 	inverseJoinColumns={@JoinColumn(name="ROLE_ID")})
 	private List<Role> roles;
+	
+	
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 
@@ -51,10 +77,10 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!username.equals(other.username))
 			return false;
 		return true;
 	}
@@ -71,13 +97,13 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getId() {
+	/*public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
+	}*/
 
 	public String getUsername() {
 		return username;

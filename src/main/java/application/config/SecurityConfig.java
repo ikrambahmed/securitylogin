@@ -23,7 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 					.antMatchers("/api/**")
 						.hasRole("USER")
 					.antMatchers("/**")
-						.hasRole("ADMIN").and()
+						.hasRole("ADMIN").
+						antMatchers("/**").
+						   hasRole("ORD")
+						.and()
 							.csrf().disable().headers()
 								.frameOptions().disable();
 	}

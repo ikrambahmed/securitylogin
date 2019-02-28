@@ -21,10 +21,18 @@ public class SecurityloginApplication {
 	
 		RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
 		
-    
+        Role roleOrd = new Role(RoleEnum.ROLE_ORD) ; 
 		Role roleUser = new Role(RoleEnum.ROLE_USER);
 		Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
+		Role roleControl = new Role(RoleEnum.ROLE_CONTROL);
+		Role rolePayeur = new Role(RoleEnum.ROLE_PAYEUR) ; 
+		Role roleMinstr = new Role(RoleEnum.ROLE_MINSTR) ; 
 		
+		
+		roleRepository.save(roleOrd) ; 
+		roleRepository.save(roleControl) ;
+		roleRepository.save(rolePayeur) ; 
+		roleRepository.save(roleMinstr) ; 
 		roleRepository.save(roleUser);
 		roleRepository.save(roleAdmin);
 		
@@ -39,6 +47,12 @@ public class SecurityloginApplication {
 		admin.setRoles(Arrays.asList(roleUser, roleAdmin));
 		
 		userRepository.save(admin);
+
+		User user1 = new User("11406260", "ikram", true);
+		user1.setRoles(Arrays.asList(roleOrd,roleUser));
+		userRepository.save(user1);
+		
+
 		
 	}
 

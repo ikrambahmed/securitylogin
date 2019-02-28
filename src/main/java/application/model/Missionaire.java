@@ -3,22 +3,64 @@ package application.model;	import java.io.Serializable;
 
 	import javax.persistence.*;
 
+import application.model.Categorie;
+import application.model.classe;
+import application.model.deptgen;
+import application.model.fonction;
+import application.model.grade;
+import application.model.groupe;
+
 	@Entity
 	public class Missionaire implements Serializable {
-	@Id
-	private String cin ; 
-	private String matricule ; 
-	private String nom;
-	private String nomL;
-	private String prenom;
-	private String prenomL;
-	private String nationalite;
-	private String nationaliteL;
-	private Date datenaissance;
-	private Date date_cin;
-	private String place_cin;
-	private String niveau;
-	private String ministr;
+		@Id
+		private String cin ; 
+		private String matricule ; 
+		private String nom;
+		private String nomL;
+		private String prenom;
+		private String prenomL;
+		private String nationalite;
+		private String nationaliteL;
+		private Date datenaissance;
+		private String place_naissance ; 
+		private String rib ; 
+		private Date date_cin;
+		private String place_cin;
+		private String groupe ; 
+		private String niveau;
+		private String ministr;
+		
+		
+	public String getPlace_naissance() {
+			return place_naissance;
+		}
+
+
+		public void setPlace_naissance(String place_naissance) {
+			this.place_naissance = place_naissance;
+		}
+
+
+		public String getRib() {
+			return rib;
+		}
+
+
+		public void setRib(String rib) {
+			this.rib = rib;
+		}
+
+
+		public String getGroupe() {
+			return groupe;
+		}
+
+
+		public void setGroupe(String groupe) {
+			this.groupe = groupe;
+		}
+
+
 	public Missionaire()
 	{
 	}
@@ -182,6 +224,83 @@ package application.model;	import java.io.Serializable;
 	public void setMinistr(String ministr) {
 		this.ministr = ministr;
 	}
+
+@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+private grade graade;
+
+@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+private fonction fonnction;
+
+
+@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+private classe classee;
+
+@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+private Categorie cat;
+
+@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+private groupe group;
+
+@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+private deptgen dept;
+public grade getGraade() {
+	return graade;
+}
+
+
+public void setGraade(grade graade) {
+	this.graade = graade;
+}
+
+
+public fonction getFonnction() {
+	return fonnction;
+}
+
+
+public void setFonnction(fonction fonnction) {
+	this.fonnction = fonnction;
+}
+
+
+public classe getClassee() {
+	return classee;
+}
+
+
+public void setClassee(classe classee) {
+	this.classee = classee;
+}
+
+
+public Categorie getCat() {
+	return cat;
+}
+
+
+public void setCat(Categorie cat) {
+	this.cat = cat;
+}
+
+
+public groupe getGroup() {
+	return group;
+}
+
+
+public void setGroup(groupe group) {
+	this.group = group;
+}
+
+
+public deptgen getDept() {
+	return dept;
+}
+
+
+public void setDept(deptgen dept) {
+	this.dept = dept;
+}
 
 
 
