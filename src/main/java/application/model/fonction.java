@@ -5,14 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class fonction {
+public class Fonction {
 	
 	@Id
 	private int code;
 	private String liba;
 	private String libfr;
 	
+	@OneToMany(mappedBy="fonnction")
+	@JsonIgnore
+	private Collection<Missionaire> missionnaire;
+
 	
 	public int getCode() {
 		return code;
@@ -39,7 +45,5 @@ public class fonction {
 		this.libfr = libfr;
 	}
 	
-	@OneToMany(mappedBy="fonnction")
-	private Collection<Missionaire> missionnaire;
-
+	
 }

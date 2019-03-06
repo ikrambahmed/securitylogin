@@ -1,14 +1,14 @@
 package application.model;	import java.io.Serializable;
-	import java.util.Date;
+import java.util.Collection;
+import java.util.Date;
 
 	import javax.persistence.*;
 
 import application.model.Categorie;
-import application.model.classe;
+import application.model.Classe;
 import application.model.deptgen;
-import application.model.fonction;
-import application.model.grade;
-import application.model.groupe;
+
+import application.model.Groupe;
 
 	@Entity
 	public class Missionaire implements Serializable {
@@ -30,6 +30,27 @@ import application.model.groupe;
 		private String niveau;
 		private String ministr;
 		
+		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		private Grade graade;
+
+		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		private Fonction fonnction;
+
+
+		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		private Classe classee;
+
+		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		private Categorie cat;
+
+		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		private Groupe group;
+
+		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		private deptgen dept;
+
+		@OneToMany
+		private Collection<Ord_Miss> ordmiss;
 		
 	public String getPlace_naissance() {
 			return place_naissance;
@@ -225,50 +246,38 @@ import application.model.groupe;
 		this.ministr = ministr;
 	}
 
-@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-private grade graade;
-
-@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-private fonction fonnction;
 
 
-@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-private classe classee;
-
-@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-private Categorie cat;
-
-@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-private groupe group;
-
-@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-private deptgen dept;
-public grade getGraade() {
-	return graade;
-}
 
 
-public void setGraade(grade graade) {
-	this.graade = graade;
-}
 
 
-public fonction getFonnction() {
+public Grade getGraade() {
+		return graade;
+	}
+
+
+	public void setGraade(Grade graade) {
+		this.graade = graade;
+	}
+
+
+public Fonction getFonnction() {
 	return fonnction;
 }
 
 
-public void setFonnction(fonction fonnction) {
+public void setFonnction(Fonction fonnction) {
 	this.fonnction = fonnction;
 }
 
 
-public classe getClassee() {
+public Classe getClassee() {
 	return classee;
 }
 
 
-public void setClassee(classe classee) {
+public void setClassee(Classe classee) {
 	this.classee = classee;
 }
 
@@ -283,12 +292,12 @@ public void setCat(Categorie cat) {
 }
 
 
-public groupe getGroup() {
+public Groupe getGroup() {
 	return group;
 }
 
 
-public void setGroup(groupe group) {
+public void setGroup(Groupe group) {
 	this.group = group;
 }
 

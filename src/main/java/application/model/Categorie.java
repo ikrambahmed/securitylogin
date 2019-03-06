@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Categorie {
 
@@ -13,8 +15,11 @@ public class Categorie {
 	private int code;
 	private String liba;
 	private String libfr;
-	
-	
+
+
+	@OneToMany(mappedBy="cat")
+	@JsonIgnore
+	private Collection<Missionaire> missionnaire;
 	
 	public Collection<Missionaire> getMissionnaire() {
 		return missionnaire;
@@ -43,7 +48,5 @@ public class Categorie {
 
 	
 
-	@OneToMany(mappedBy="cat")
-	private Collection<Missionaire> missionnaire;
 	
 }

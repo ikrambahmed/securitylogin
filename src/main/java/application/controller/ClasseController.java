@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import application.model.classe;
+import application.model.Classe;
 import application.service.Classedao;
 
 
@@ -24,7 +24,7 @@ public class ClasseController {
 	Classedao classedao;
 	
 	@GetMapping
-	public List<classe> getAllclasses(){
+	public List<Classe> getAllclasses(){
 		return classedao.findAll();
 	}
 

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import application.model.groupe;
+import application.model.Groupe;
 import application.repository.GroupeRepository;
 
 
@@ -19,7 +19,7 @@ public class Groupedao {
 	@Autowired
 	GroupeRepository grouperepository;
 	
-	public List<groupe> findAll(){
+	public List<Groupe> findAll(){
 		return grouperepository.findAll();
 	}
 

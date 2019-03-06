@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import application.model.grade;
+import application.model.Grade;
 import application.repository.GradeRepository;
 
 
@@ -19,7 +19,7 @@ public class Gradedao {
 	@Autowired
 	GradeRepository graderepository;
 	
-	public List<grade> findAll(){
+	public List<Grade> findAll(){
 		return graderepository.findAll();
 	}
 

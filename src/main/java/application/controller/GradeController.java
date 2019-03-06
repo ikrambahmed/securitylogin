@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import application.model.grade;
+import application.model.Grade;
 import application.service.Gradedao;
 
 @RestController
@@ -21,7 +21,7 @@ public class GradeController {
 	Gradedao gradedao;
 	
 	@GetMapping("/api/listgrade")
-	public List<grade> getAllgrades(){
+	public List<Grade> getAllgrades(){
 		return gradedao.findAll();
 	}
 	
@@ -29,8 +29,6 @@ public class GradeController {
 	public String getGrade(@RequestParam(name="name",defaultValue="")String name)
 	{
 		return gradedao.getGrade(name);
-		
-		
 	}
 
 }

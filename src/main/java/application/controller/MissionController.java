@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import application.model.Missionaire;
-import application.model.mission;
+import application.model.Mission;
 import application.service.Missiondao;
 
 
@@ -31,18 +31,18 @@ public class MissionController {
 	
 	
 	@GetMapping
-	public List<mission> getMissionaires() {
+	public List<Mission> getMissionaires() {
 		return missiondao.getMissions() ; 
 		
 	}
 	@PostMapping
-	public void addMission(@RequestBody mission Mission)
+	public void addMission(@RequestBody Mission Mission)
 	{
 		missiondao.addMission(Mission);
 	}
 	
 	@PutMapping
-	public void updateMission(@RequestBody mission missiona)
+	public void updateMission(@RequestBody Mission missiona)
 	{
 		missiondao.updateMission(missiona);
 		

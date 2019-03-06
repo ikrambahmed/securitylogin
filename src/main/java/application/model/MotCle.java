@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class MotCle {
 	
@@ -19,7 +21,8 @@ public class MotCle {
 	private String libF;
 	
 	@OneToMany(mappedBy="Motcle", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	private Collection<mission> missions;
+	@JsonIgnore
+	private Collection<Mission> missions;
 	
 	public Long getCode() {
 		return code;
@@ -39,7 +42,7 @@ public class MotCle {
 	public void setLibF(String libF) {
 		this.libF = libF;
 	}
-	public MotCle(Long code, String libA, String libF, Collection<mission> missions) {
+	public MotCle(Long code, String libA, String libF, Collection<Mission> missions) {
 		super();
 		this.code = code;
 		this.libA = libA;
@@ -50,10 +53,10 @@ public class MotCle {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Collection<mission> getMissions() {
+	public Collection<Mission> getMissions() {
 		return missions;
 	}
-	public void setMissions(Collection<mission> missions) {
+	public void setMissions(Collection<Mission> missions) {
 		this.missions = missions;
 	}
 

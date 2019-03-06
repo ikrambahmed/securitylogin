@@ -2,15 +2,15 @@ package application.service;
 
 import java.util.List;
 
-import application.model.mission;
+import application.model.Mission;
 
 
 public interface IMission {
-	List<mission> getMissions() ; 
+	List<Mission> getMissions() ; 
 	
-	void addMission(mission Mission) ; 
+	void addMission(Mission Mission) ; 
 	
-	void updateMission(mission Mission) ; 
+	void updateMission(Mission Mission) ; 
 	
 	void deleteMission(Long code) ; 
 	

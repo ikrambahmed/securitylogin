@@ -2,6 +2,7 @@ package application.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -41,6 +42,7 @@ public class IMissionaireImpl implements IMissionnaire {
         Missionaire missionaire = new Missionaire() ; 
         missionaire.setCin(cin);
         missionaires.remove(missionaire) ; 
+	
 	}
 
 }

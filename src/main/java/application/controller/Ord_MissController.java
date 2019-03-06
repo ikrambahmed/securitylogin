@@ -8,22 +8,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import application.model.Groupe;
-import application.service.Groupedao;
+import application.model.Mission;
+import application.model.Ord_Miss;
+import application.service.Missiondao;
+import application.service.Ord_MissDao;
 
 @RestController
-@RequestMapping("/api/listgroupe")
+@RequestMapping("/api/ordMiss")
 @CrossOrigin
+public class Ord_MissController {
 
-public class GroupeController {
 	
 	@Autowired
-	Groupedao groupedao;
+	Ord_MissDao ordMissDao;
+	
 	
 	@GetMapping
-	public List<Groupe> getAllgroupes(){
-		return groupedao.findAll();
+	public List<Ord_Miss> getOrds() {
+		return ordMissDao. findAll(); 
+		
 	}
-
-
 }

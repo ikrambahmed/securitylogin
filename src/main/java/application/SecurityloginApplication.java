@@ -43,7 +43,7 @@ public class SecurityloginApplication {
 		
 		userRepository.save(user);
 		
-		User admin = new User("admin", "password2", true);
+		User admin = new User("12345678", "password2", true);
 		admin.setRoles(Arrays.asList(roleUser, roleAdmin));
 		
 		userRepository.save(admin);

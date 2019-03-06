@@ -6,14 +6,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class classe {
+public class Classe {
 	
 	@Id
 	private String code_fct;
 	private String liba;
 	private String libfr;
 	
+	@OneToMany(mappedBy="classee")
+	@JsonIgnore
+	private Collection<Missionaire> missionnaire;
 	
 	
 	public Collection<Missionaire> getMissionnaire() {
@@ -41,8 +46,6 @@ public class classe {
 		this.libfr = libfr;
 	}
 	
-	@OneToMany(mappedBy="classee")
-	private Collection<Missionaire> missionnaire;
 	
 	
 

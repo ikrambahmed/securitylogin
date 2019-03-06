@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import application.model.grade;
+import application.model.Grade;
 
 
 @Repository
-public interface GradeRepository extends JpaRepository<grade, Long> {
+public interface GradeRepository extends JpaRepository<Grade, Long> {
 
 	
-	@Query("select code from grade o where o.liba=:x")
+	@Query("select code from Grade o where o.liba=:x")
 	public String getGrade(@Param("x")String name); 
 }

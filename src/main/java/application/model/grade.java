@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class grade {
+public class Grade {
 	
 	
 	@Id
@@ -14,7 +16,10 @@ public class grade {
 	private String liba;
 	private String libfr;
 	
-	
+	@OneToMany(mappedBy="graade")
+	@JsonIgnore
+	private Collection<Missionaire> missionnaire;
+
 	
 	public Collection<Missionaire> getMissionnaire() {
 		return missionnaire;
@@ -42,7 +47,5 @@ public class grade {
 	}
 	
 	
-	@OneToMany(mappedBy="graade")
-	private Collection<Missionaire> missionnaire;
-
+	
 }

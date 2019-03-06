@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import application.model.mission;
+import application.model.Mission;
 import application.repository.MissionRepository;
 
 @Service
@@ -18,18 +18,18 @@ public class Missiondao implements IMission {
 		private MissionRepository missionRepository ; 
 		 
 		@Override
-		public List<mission> getMissions() {
+		public List<Mission> getMissions() {
 			// TODO Auto-generated method stub
 			return missionRepository.findAll() ; 	}
 
 		@Override
-		public void addMission(mission Mission) {
+		public void addMission(Mission Mission) {
 			missionRepository.save(Mission) ; 
 			
 		}
 
 		@Override
-		public void updateMission(mission Mission) {
+		public void updateMission(Mission Mission) {
 			
 			
 			missionRepository.save(Mission) ; 
@@ -39,7 +39,7 @@ public class Missiondao implements IMission {
 		@Override
 		public void deleteMission(Long code) {
 			
-			mission Mission = new mission() ; 
+			Mission Mission = new Mission() ; 
 			Mission.setCode_mission(code);
 			missionRepository.delete(Mission);
 		}

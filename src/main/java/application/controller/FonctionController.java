@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import application.model.fonction;
+import application.model.Fonction;
 import application.service.Fonctiondao;
 
 
@@ -21,7 +21,7 @@ public class FonctionController {
 	Fonctiondao fonctiondao;
 	
 	@GetMapping
-	public List<fonction> getAllfonction(){
+	public List<Fonction> getAllfonction(){
 		return fonctiondao.findAll();
 	}
 

@@ -2,13 +2,17 @@ package application.model;
 
 
 
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class mission {
+public class Mission {
 	
 	@Id
 	private Long code_mission;
@@ -19,8 +23,12 @@ public class mission {
 	
 	
 	@ManyToOne
+	@JsonIgnore
 	private MotCle Motcle;
 	
+	@OneToMany(mappedBy="mission")
+	@JsonIgnore
+	private Collection<Ord_Miss> ordmiss;
 	
 	public String getObjetA() {
 		return objetA;
@@ -59,12 +67,12 @@ public class mission {
 	public void setDate_fin(Date date_fin) {
 		this.date_fin = date_fin;
 	}
-	public mission() {
+	public Mission() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public mission(Long code_mission, String objetA, String objetF, Date date_debut, Date date_fin, MotCle motcle) {
+	public Mission(Long code_mission, String objetA, String objetF, Date date_debut, Date date_fin, MotCle motcle) {
 		super();
 		this.code_mission = code_mission;
 		this.objetA = objetA;

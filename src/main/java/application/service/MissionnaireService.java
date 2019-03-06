@@ -1,5 +1,6 @@
 package application.service;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -39,6 +40,12 @@ public class MissionnaireService implements IMissionnaire {
 		Missionaire missionaire = new Missionaire() ; 
 		missionaire.setCin(cin);
 		missionnaireRepository.delete(missionaire);
+	}
+
+	
+	public Optional<Missionaire> getMissionnaire(String cin ) {
+		// TODO Auto-generated method stub
+		return missionnaireRepository.getMiss(cin)  ; 
 	}
 
 }

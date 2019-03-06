@@ -7,13 +7,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class groupe {
+public class Groupe {
 
 	@Id
 	private int code;
 	private String liba;
 	private String libfr;
+	
+	@OneToMany(mappedBy="group")
+	@JsonIgnore
+	private Collection<Missionaire> missionnaire;
 	
 	
 	public Collection<Missionaire> getMissionnaire() {
@@ -42,6 +48,5 @@ public class groupe {
 	}
 	
 	
-	@OneToMany(mappedBy="group")
-	private Collection<Missionaire> missionnaire;
+	
 }
