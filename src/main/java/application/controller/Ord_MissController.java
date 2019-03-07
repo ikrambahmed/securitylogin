@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import application.model.Mission;
+import application.model.Missionaire;
 import application.model.Ord_Miss;
 import application.service.Missiondao;
 import application.service.Ord_MissDao;
@@ -28,4 +31,11 @@ public class Ord_MissController {
 		return ordMissDao. findAll(); 
 		
 	}
+	
+	@PostMapping
+	public void addOrdMiss(@RequestBody Ord_Miss ordMiss)
+	{
+		 ordMissDao.addordMiss(ordMiss);
+	}
+	
 }

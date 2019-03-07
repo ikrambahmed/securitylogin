@@ -16,7 +16,13 @@ import application.repository.Ord_MissRepository;
 		
 		@Autowired
         Ord_MissRepository ordmissRepository	 ; 	
+		
 		public List<Ord_Miss> findAll(){
 			return ordmissRepository.findAll();
+		}
+		
+		
+		public Object addordMiss(Ord_Miss ordMiss) {
+			return ordmissRepository.save(ordMiss);
 		}
 }

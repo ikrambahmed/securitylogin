@@ -22,12 +22,19 @@ public class Ord_Miss {
 	private Double tot_transport ; 
 	
 	
+	public Missionaire getMissionnaire() {
+		return missionnaire;
+	}
+
+	public void setMissionnaire(Missionaire missionnaire) {
+		this.missionnaire = missionnaire;
+	}
+
 	@ManyToOne
-	@JsonIgnore
 	private Mission mission ; 
 	
 	@ManyToOne
-	@JsonIgnore
+	
 	private Missionaire missionnaire;
 
 	public Long getNum_ord() {

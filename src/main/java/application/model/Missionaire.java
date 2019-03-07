@@ -57,6 +57,16 @@ import application.model.Groupe;
 		}
 
 
+		public Collection<Ord_Miss> getOrdmiss() {
+		return ordmiss;
+	}
+
+
+	public void setOrdmiss(Collection<Ord_Miss> ordmiss) {
+		this.ordmiss = ordmiss;
+	}
+
+
 		public void setPlace_naissance(String place_naissance) {
 			this.place_naissance = place_naissance;
 		}

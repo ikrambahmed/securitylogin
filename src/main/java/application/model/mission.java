@@ -30,6 +30,12 @@ public class Mission {
 	@JsonIgnore
 	private Collection<Ord_Miss> ordmiss;
 	
+	public Collection<Ord_Miss> getOrdmiss() {
+		return ordmiss;
+	}
+	public void setOrdmiss(Collection<Ord_Miss> ordmiss) {
+		this.ordmiss = ordmiss;
+	}
 	public String getObjetA() {
 		return objetA;
 	}
