@@ -1,25 +1,63 @@
 package application.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class deptgen {
+public class Deptgen implements Serializable  {
 
 	
 	@Id
+	@Column(name = "CODE")
+
 	private int code;
+	
+	@Column(name = "LIB_A")
+
 	private String liba;
+	
+	@Column(name = "LIB_L")
+
 	private String libfr;
+	
+	@Column(name = "TYP_DEPT")
+
 	private String type;
 	
+	
+	
+	public Deptgen(int code, String liba, String libfr, String type, Collection<Missionaire> missionnaire,
+			Collection<User> users) {
+		super();
+		this.code = code;
+		this.liba = liba;
+		this.libfr = libfr;
+		this.type = type;
+		this.missionnaire = missionnaire;
+		this.users = users;
+	}
+	public Deptgen() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	@OneToMany(mappedBy="dept")
+	@JsonIgnore
+	private Collection<Missionaire> missionnaire;
 	
 	public Collection<User> getUsers() {
 		return users;
@@ -68,8 +106,7 @@ public class deptgen {
 	
 	
 
-	@OneToMany(mappedBy="dept")
-	private Collection<Missionaire> missionnaire;
+	
 	
 	
 	

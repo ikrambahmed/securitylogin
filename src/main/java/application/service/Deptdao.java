@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import application.model.deptgen;
+import application.model.Deptgen;
 import application.repository.DeptRepository;
 
 
@@ -18,7 +18,7 @@ public class Deptdao {
 	@Autowired
 	DeptRepository deptrepository;
 	
-	public List<deptgen> findAll(){
+	public List<Deptgen> findAll(){
 		return deptrepository.findAll();
 	}
 

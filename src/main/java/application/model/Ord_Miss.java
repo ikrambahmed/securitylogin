@@ -1,5 +1,6 @@
 package application.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
@@ -11,7 +12,7 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Ord_Miss {
+public class Ord_Miss implements Serializable{
 	
 	@Id
 	private Long num_ord ; 
@@ -22,6 +23,23 @@ public class Ord_Miss {
 	private Double tot_transport ; 
 	
 	
+	public Ord_Miss() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Ord_Miss(Long num_ord, Date date_depart, Date date_arrivee, Double tot_mission, Double tot_transport,
+			Mission mission, Missionaire missionnaire) {
+		super();
+		this.num_ord = num_ord;
+		Date_depart = date_depart;
+		Date_arrivee = date_arrivee;
+		this.tot_mission = tot_mission;
+		this.tot_transport = tot_transport;
+		this.mission = mission;
+		this.missionnaire = missionnaire;
+	}
+
 	public Missionaire getMissionnaire() {
 		return missionnaire;
 	}

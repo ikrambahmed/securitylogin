@@ -2,6 +2,7 @@ package application.model;
 
 
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Mission {
+public class Mission implements Serializable{
 	
 	@Id
 	private Long code_mission;
@@ -21,7 +22,21 @@ public class Mission {
 	private Date date_debut;
 	private Date date_fin;
 	
+	public Mission() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
+	public Mission(Long code_mission, String objetA, String objetF, Date date_debut, Date date_fin, MotCle motcle) {
+		super();
+		this.code_mission = code_mission;
+		this.objetA = objetA;
+		this.objetF = objetF;
+		this.date_debut = date_debut;
+		this.date_fin = date_fin;
+		Motcle = motcle;
+	}
+
 	@ManyToOne
 	@JsonIgnore
 	private MotCle Motcle;
@@ -73,21 +88,7 @@ public class Mission {
 	public void setDate_fin(Date date_fin) {
 		this.date_fin = date_fin;
 	}
-	public Mission() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	
-	public Mission(Long code_mission, String objetA, String objetF, Date date_debut, Date date_fin, MotCle motcle) {
-		super();
-		this.code_mission = code_mission;
-		this.objetA = objetA;
-		this.objetF = objetF;
-		this.date_debut = date_debut;
-		this.date_fin = date_fin;
-		Motcle = motcle;
-	}
-
 	
 	
 	

@@ -1,19 +1,26 @@
 package application.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Classe {
-	
+public class Classe implements Serializable{
 	@Id
+	@Column(name = "CLASSGRD")
 	private String code_fct;
+	@Column(name ="LIBCLASSGRDA")
 	private String liba;
+	@Column(name ="LIBCLASSGRDL")
 	private String libfr;
 	
 	@OneToMany(mappedBy="classee")
@@ -21,6 +28,17 @@ public class Classe {
 	private Collection<Missionaire> missionnaire;
 	
 	
+	public Classe() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Classe(String code_fct, String liba, String libfr, Collection<Missionaire> missionnaire) {
+		super();
+		this.code_fct = code_fct;
+		this.liba = liba;
+		this.libfr = libfr;
+		this.missionnaire = missionnaire;
+	}
 	public Collection<Missionaire> getMissionnaire() {
 		return missionnaire;
 	}

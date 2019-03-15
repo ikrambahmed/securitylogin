@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ import application.service.Ord_MissDao;
 @RestController
 @RequestMapping("/api/ordMiss")
 @CrossOrigin
-public class Ord_MissController {
+public class Ord_MissController  {
 
 	
 	@Autowired
@@ -35,7 +36,12 @@ public class Ord_MissController {
 	@PostMapping
 	public void addOrdMiss(@RequestBody Ord_Miss ordMiss)
 	{
-		 ordMissDao.addordMiss(ordMiss);
+		 ordMissDao.ajouter(ordMiss);
 	}
 	
+	@PutMapping
+	public void Modiford(@RequestBody Ord_Miss o) {
+		ordMissDao.updateOrd(o);
+		
+	}
 }

@@ -25,22 +25,22 @@ import application.service.MissionnaireService;
 @RequestMapping("/api/missionaire")
 @CrossOrigin
 public class MissionnaireController {
+	
 	@Autowired
 	private MissionnaireService missionaireService ; 
 	
-	  @GetMapping(value="lista")
+	@GetMapping(value="lista")
 	  public Optional<Missionaire> getMiss(@RequestParam(name="cin",defaultValue="")String cin)
 	    {
 		  return missionaireService.getMissionnaire(cin) ; 
 	    }
 		
-	    
-	
 	@GetMapping
 	public List<Missionaire> getMissionaires() {
 		return missionaireService.getMissionnaires() ; 
 		
 	}
+	
 	@PostMapping
 	public void addMissionaire(@RequestBody Missionaire missionaire)
 	{

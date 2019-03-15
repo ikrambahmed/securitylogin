@@ -1,57 +1,110 @@
 package application.model;	import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import javax.persistence.*;
 
-	import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import application.model.Categorie;
 import application.model.Classe;
-import application.model.deptgen;
+import application.model.Deptgen;
 
 import application.model.Groupe;
 
 	@Entity
-	public class Missionaire implements Serializable {
+	public class Missionaire implements Serializable  {
 		@Id
-		private String cin ; 
+		@Column(name = "cin")
+	private String cin ; 
+		@Column(name = "matricule")
 		private String matricule ; 
+		@Column(name = "nom")
+		
 		private String nom;
+		@Column(name = "nomL")
 		private String nomL;
+		@Column(name = "prenom")
 		private String prenom;
+		@Column(name = "prenomL")
 		private String prenomL;
+		@Column(name = "nationalite")
 		private String nationalite;
+		@Column(name = "nationaliL")
 		private String nationaliteL;
+		@Column(name = "date_naiss")
 		private Date datenaissance;
+		@Column(name = "place_naiss")
 		private String place_naissance ; 
+		@Column(name = "rib")
 		private String rib ; 
+		@Column(name = "date_cin")
 		private Date date_cin;
+		@Column(name = "place_cin")
 		private String place_cin;
+		@Column(name = "groupe")
 		private String groupe ; 
+		@Column(name = "niveau")
 		private String niveau;
+		@Column(name = "ministr")
 		private String ministr;
 		
-		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		@ManyToOne 
 		private Grade graade;
-
-		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		
+		@ManyToOne 
 		private Fonction fonnction;
-
-
-		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	
+		@ManyToOne
 		private Classe classee;
-
-		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		
+		@ManyToOne
 		private Categorie cat;
-
-		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		
+		@ManyToOne 
 		private Groupe group;
-
-		@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-		private deptgen dept;
+		
+		@ManyToOne
+		private Deptgen dept;
 
 		@OneToMany
+		@JsonIgnore
 		private Collection<Ord_Miss> ordmiss;
 		
+		
+		
+		
+	public Missionaire(String cin, String matricule, String nom, String nomL, String prenom, String prenomL,
+				String nationalite, String nationaliteL, Date datenaissance, String place_naissance, String rib,
+				Date date_cin, String place_cin, String groupe, String niveau, String ministr, Grade graade,
+				Fonction fonnction, Classe classee, Categorie cat, Groupe group, Deptgen dept,
+				Collection<Ord_Miss> ordmiss) {
+			super();
+			this.cin = cin;
+			this.matricule = matricule;
+			this.nom = nom;
+			this.nomL = nomL;
+			this.prenom = prenom;
+			this.prenomL = prenomL;
+			this.nationalite = nationalite;
+			this.nationaliteL = nationaliteL;
+			this.datenaissance = datenaissance;
+			this.place_naissance = place_naissance;
+			this.rib = rib;
+			this.date_cin = date_cin;
+			this.place_cin = place_cin;
+			this.groupe = groupe;
+			this.niveau = niveau;
+			this.ministr = ministr;
+			this.graade = graade;
+			this.fonnction = fonnction;
+			this.classee = classee;
+			this.cat = cat;
+			this.group = group;
+			this.dept = dept;
+			this.ordmiss = ordmiss;
+		}
+
+
 	public String getPlace_naissance() {
 			return place_naissance;
 		}
@@ -312,12 +365,12 @@ public void setGroup(Groupe group) {
 }
 
 
-public deptgen getDept() {
+public Deptgen getDept() {
 	return dept;
 }
 
 
-public void setDept(deptgen dept) {
+public void setDept(Deptgen dept) {
 	this.dept = dept;
 }
 

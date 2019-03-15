@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import application.model.deptgen;
+import application.model.Deptgen;
 import application.service.Deptdao;
 
 
@@ -22,7 +22,7 @@ public class DeptController {
 	Deptdao deptdao;
 	
 	@GetMapping("/alldept")
-	public List<deptgen> getAlldept(){
+	public List<Deptgen> getAlldept(){
 		return deptdao.findAll();
 	}
 

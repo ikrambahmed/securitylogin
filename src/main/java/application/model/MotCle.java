@@ -1,5 +1,6 @@
 package application.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class MotCle {
+public class MotCle  implements Serializable {
 	
 	
 	
@@ -19,6 +20,8 @@ public class MotCle {
 	private Long code;
 	private String libA;
 	private String libF;
+	
+	
 	
 	@OneToMany(mappedBy="Motcle", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JsonIgnore

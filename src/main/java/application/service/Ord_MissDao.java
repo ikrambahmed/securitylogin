@@ -22,7 +22,11 @@ import application.repository.Ord_MissRepository;
 		}
 		
 		
-		public Object addordMiss(Ord_Miss ordMiss) {
-			return ordmissRepository.save(ordMiss);
+		public void ajouter(Ord_Miss o) {
+			ordmissRepository.save(o);
+		}
+		
+		public void updateOrd(Ord_Miss o) {
+			ordmissRepository.save(o);
 		}
 }
